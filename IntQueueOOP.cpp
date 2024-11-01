@@ -1,3 +1,5 @@
+// Object class for the Integer Queue
+
 #include <stdlib.h>
 #include "IntQueueOOP.h"
 
@@ -21,11 +23,23 @@ int IntQueueOOP::getSize()
 	return size;
 }
 
+/*
+	Initially, I simply returned the queue's array
+	all by itself, but learned that that ties it to
+	the array that receives it in main(). So now it
+	carefully creates a new, separate array that copies
+	the values over and then returns the copy.
+*/
 int* IntQueueOOP::getElements()
 {
 	int* dispQ = (int*)malloc(size * sizeof(int));
-	for (int i = 0; i < size; i++)
-		dispQ[i] = queue[(head + i) % capacity];
+	if (dispQ != NULL)
+	{
+		for (int i = 0; i < size; i++)
+			dispQ[i] = queue[(head + i) % capacity];
+	}
+	else
+		return NULL;
 
 	return dispQ;
 }
