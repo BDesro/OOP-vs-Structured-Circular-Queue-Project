@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "IntQueueStruct.h"
 
-int main()
+int main1()
 {
 	int capacity = 10;
 	int size = 0;

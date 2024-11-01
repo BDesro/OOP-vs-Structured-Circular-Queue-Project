@@ -23,7 +23,11 @@ int IntQueueOOP::getSize()
 
 int* IntQueueOOP::getElements()
 {
-	return queue;
+	int* dispQ = (int*)malloc(size * sizeof(int));
+	for (int i = 0; i < size; i++)
+		dispQ[i] = queue[(head + i) % capacity];
+
+	return dispQ;
 }
 
 bool IntQueueOOP::enqueue(int value)
@@ -54,7 +58,7 @@ bool IntQueueOOP::enqueue(int value)
 
 int IntQueueOOP::dequeue()
 {
-	if (size = 0)
+	if (size <= 0)
 		return 0;
 
 	int element = queue[head];
